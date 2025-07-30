@@ -1,1 +1,160 @@
-<p>about works!</p>
+<div class="about-container">
+  <!-- Header Section -->
+  <div class="about-header">
+    <div class="profile-section">
+      <div class="profile-avatar">
+        <mat-icon class="avatar-icon">person</mat-icon>
+      </div>
+      <div class="profile-info">
+        <h1 class="name">{{ personalInfo.name }}</h1>
+        <h2 class="title">{{ personalInfo.title }}</h2>
+        <div class="basic-info">
+          <div class="info-item">
+            <mat-icon>location_on</mat-icon>
+            <span>{{ personalInfo.location }}</span>
+          </div>
+          <div class="info-item">
+            <mat-icon>work</mat-icon>
+            <span>{{ personalInfo.experience }}</span>
+          </div>
+          <div class="info-item">
+            <mat-icon>email</mat-icon>
+            <span>{{ personalInfo.email }}</span>
+          </div>
+          <div class="info-item">
+            <mat-icon>phone</mat-icon>
+            <span>{{ personalInfo.phone }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- About Description -->
+  <mat-card class="section-card about-description">
+    <mat-card-header>
+      <mat-card-title>
+        <mat-icon>info</mat-icon>
+        Giới thiệu
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p class="description-text">{{ aboutDescription }}</p>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Technical Skills -->
+  <mat-card class="section-card skills-section">
+    <mat-card-header>
+      <mat-card-title>
+        <mat-icon>code</mat-icon>
+        Kỹ năng chuyên môn
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="skills-grid">
+        <div class="skill-category" *ngFor="let skillGroup of technicalSkills">
+          <h3 class="category-title">{{ skillGroup.category }}</h3>
+          <div class="skills-chips">
+            <mat-chip-set>
+              <mat-chip *ngFor="let skill of skillGroup.skills" class="skill-chip">
+                {{ skill }}
+              </mat-chip>
+            </mat-chip-set>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Professional Experience -->
+  <mat-card class="section-card experience-section">
+    <mat-card-header>
+      <mat-card-title>
+        <mat-icon>business_center</mat-icon>
+        Kinh nghiệm làm việc
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="experience-list">
+        <div class="experience-item" *ngFor="let exp of experiences; let last = last">
+          <div class="experience-header">
+            <div class="company-info">
+              <h3 class="company-name">{{ exp.company }}</h3>
+              <h4 class="position">{{ exp.position }}</h4>
+              <div class="duration">
+                <mat-icon>schedule</mat-icon>
+                <span>{{ exp.duration }}</span>
+              </div>
+            </div>
+          </div>
+          <p class="job-description">{{ exp.description }}</p>
+          <div class="achievements">
+            <h5>Thành tựu chính:</h5>
+            <ul>
+              <li *ngFor="let achievement of exp.achievements">{{ achievement }}</li>
+            </ul>
+          </div>
+          <div class="divider" *ngIf="!last"></div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Education & Certifications -->
+  <div class="education-certs-row">
+    <!-- Education -->
+    <mat-card class="section-card education-section">
+      <mat-card-header>
+        <mat-card-title>
+          <mat-icon>school</mat-icon>
+          Học vấn
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="education-item" *ngFor="let edu of education">
+          <h3 class="degree">{{ edu.degree }}</h3>
+          <h4 class="school">{{ edu.school }}</h4>
+          <div class="year-gpa">
+            <span class="year">{{ edu.year }}</span>
+            <span class="gpa">{{ edu.gpa }}</span>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Certifications -->
+    <mat-card class="section-card certifications-section">
+      <mat-card-header>
+        <mat-card-title>
+          <mat-icon>verified</mat-icon>
+          Chứng chỉ
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="certifications-list">
+          <div class="cert-item" *ngFor="let cert of certifications">
+            <mat-icon class="cert-icon">emoji_events</mat-icon>
+            <span>{{ cert }}</span>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- Contact CTA -->
+  <div class="contact-cta">
+    <h3>Quan tâm hợp tác?</h3>
+    <p>Hãy liên hệ với tôi để thảo luận về các cơ hội làm việc hoặc dự án thú vị!</p>
+    <div class="cta-buttons">
+      <button mat-raised-button color="primary" class="contact-btn">
+        <mat-icon>email</mat-icon>
+        Gửi Email
+      </button>
+      <button mat-raised-button color="accent" class="resume-btn">
+        <mat-icon>download</mat-icon>
+        Tải CV
+      </button>
+    </div>
+  </div>
+</div>
