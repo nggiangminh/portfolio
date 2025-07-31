@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-about',
   standalone: true,
+  // Use 'imports' property for standalone component with Angular Material modules
   imports: [
     CommonModule,
     MatCardModule,
